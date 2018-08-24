@@ -1,0 +1,63 @@
+﻿<Window x:Class="Attention.BanListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Attention"
+        mc:Ignorable="d"
+        Title="BanListWindow" Height="500" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Image/background9.png" Stretch="Fill" Opacity="0.8" ></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="AUTO"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontSize="25" Background="White">禁止事項設定</Label>
+        <Border Grid.Row="1" BorderBrush="#FF1B2942" BorderThickness="1" CornerRadius="15" Margin="10">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Border HorizontalAlignment="Left" BorderBrush="#FF1B2942" BorderThickness="1" CornerRadius="10" Margin="3" >
+                        <Label HorizontalAlignment="Left">Keyword</Label>
+                    </Border>
+                    <Button Margin="5" Command="{Binding AddKeywordCommand}">Add</Button>
+                    <Button Margin="5" Command="{Binding DeleteKeywordCommand}">Delete</Button>
+                </StackPanel>
+                <ListBox ItemsSource="{Binding Keywords}" BorderThickness="0" Height="90" Width="300" SelectedItem="{Binding SelectedKeyword}" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Name}" Margin="5" Width="100"></TextBox>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="250"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" BorderBrush="#FF1B2942" BorderThickness="1" CornerRadius="15" Margin="10">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Border HorizontalAlignment="Left" BorderBrush="#FF1B2942" BorderThickness="1" CornerRadius="10" Margin="3" >
+                        <Label HorizontalAlignment="Left">程式/軟體/應用</Label>
+                    </Border>
+                    <Button Margin="5" Command="{Binding AddProcessCommand}">Add</Button>
+                    <Button Margin="5" Command="{Binding DeleteProcessCommand}">Delete</Button>
+                </StackPanel>
+                <ListBox Name="listbox" ItemsSource="{Binding Processes}" BorderThickness="0" Height="160" Width="300" SelectedItem="{Binding SelectedProcess}" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding .}" Width="250" IsReadOnly="True" Margin="4"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Border>
+        <Button Grid.Row="3" HorizontalAlignment="Center" Margin="10" Name="blw_btn_save" Command="{Binding SaveBanListCommand}">儲存</Button>
+    </Grid>
+</Window>

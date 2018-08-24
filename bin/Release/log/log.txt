@@ -1,0 +1,21 @@
+
+2018-08-24 23:55:21：write regedit?
+2018-08-24 23:55:21：  has existed
+2018-08-24 23:55:21：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:55:22：go SettingWindow.xaml
+2018-08-24 23:55:22：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:55:22：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:55:46：write regedit?
+2018-08-24 23:55:46：  has existed
+2018-08-24 23:55:46：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:55:47：go SettingWindow.xaml
+2018-08-24 23:55:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:55:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:57:32：write regedit?
+2018-08-24 23:57:32：  has existed
+2018-08-24 23:57:32：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:57:33：go SettingWindow.xaml
+2018-08-24 23:57:33：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:57:33：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:57:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-24 23:57:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
