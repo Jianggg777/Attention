@@ -1,10 +1,11 @@
 ﻿using Attention.ViewModel;
 using System;
 using System.Windows;
-using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.IO;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Attention
 {
@@ -20,21 +21,34 @@ namespace Attention
             InitializeComponent();
             setNotifyIcon(notifyIcon);
             rwvm.notifyIcon = notifyIcon;
+            rwvm.CloseApp += Rwvm_CloseApp;
             this.DataContext = rwvm;
-            rwvm.monitorThread.Start();   // monitor current process thread run~
+            rwvm.backgroundWorker.RunWorkerAsync();
             createMonitor(); // 開啟監視程式，監視Attention有沒有被關閉
         }
+
+        private void Rwvm_CloseApp()
+        {
+            Process[] procs = Process.GetProcessesByName("Monitor");
+            if (procs.Length != 0)
+            {
+                procs[0].Kill();
+            }
+            System.Windows.Application.Current.Shutdown();
+        }
+
         private void createMonitor()
         {
             Process[] procs = Process.GetProcessesByName("Monitor");
             if (procs.Length == 0)
             {
-                try {
+                try
+                {
                     Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Monitor.exe");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Logger.WriteLog("  error"+ex.Message);
+                    Logger.WriteLog("  error" + ex.Message);
                 }
             }
         }
@@ -59,12 +73,7 @@ namespace Attention
             string pass = Interaction.InputBox("輸入驗證碼", "關閉程式", "");
             if (pass == "yo!")
             {
-                Process[] procs = Process.GetProcessesByName("Monitor");
-                if(procs.Length != 0)
-                {
-                    procs[0].Kill();
-                }
-                Environment.Exit(0);
+                Rwvm_CloseApp();
             }
         }
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
@@ -72,6 +81,5 @@ namespace Attention
             this.Show();
             this.WindowState = WindowState.Normal;
         }
-
     }
 }

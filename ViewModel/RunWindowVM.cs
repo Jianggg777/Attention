@@ -21,7 +21,7 @@ namespace Attention.ViewModel
         public string TodayDate { get; set; }
         public List<TodoList> toDoList;
         public System.Windows.Forms.NotifyIcon notifyIcon;
-        public Thread monitorThread;
+        public BackgroundWorker backgroundWorker;
         private DispatcherTimer timer;
 
         private ObservableCollection<Process> ps;
@@ -35,7 +35,14 @@ namespace Attention.ViewModel
                 }
             }
         }
-
+        public event Action CloseApp;
+        private void OnCloseApp()
+        {
+            if (CloseApp != null)
+            {
+                CloseApp();
+            }
+        }
         public RunWindowVM()
         {
             TodayDate = DateTime.Today.ToString("yyyy/MM/dd");
@@ -45,28 +52,23 @@ namespace Attention.ViewModel
             {
                 toDoList.Add(new TodoList(p.StartTime, p.EndTime, p.Ban, p.Tip));
             }
-            monitorThread = new Thread(checkProcessThread);
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 1, 0);
             timer.Start();   //開始計時
         }
-        // 每分鐘檢查，todolist的時間時出現行事曆
-        private void Timer_Tick(object sender, EventArgs e)
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            foreach (var tdl in toDoList)
-            {
-                // 設定時間的整點，會出現提示
-                if (DateTime.Now.Minute == 0 && tdl.StartTime < DateTime.Now && tdl.EndTime > DateTime.Now)
-                {
-                    string str = string.Format("{0}:00 ~ {1}:00 : {2}", tdl.StartTime.Hour, tdl.EndTime.Hour, tdl.Tip);
-                    notifyIcon.ShowBalloonTip(1000, "Attention!", str, System.Windows.Forms.ToolTipIcon.None);
-                }
-            }
+            OnCloseApp();
         }
 
-        private void checkProcessThread()
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            DateTime stopTime = DateTime.Now.AddSeconds(30);
             while (true)
             {
                 foreach (var tdl in toDoList)  // check 時段
@@ -147,10 +149,31 @@ namespace Attention.ViewModel
                             }
                         }
                     }
+                    else if (tdl.StartTime.Date != DateTime.Now.Date)   // 隔天，程式關閉
+                    {
+                        notifyIcon.ShowBalloonTip(1000, "Attention!", "今日行程結束 ~ Attention將關閉。", System.Windows.Forms.ToolTipIcon.None);
+                        Thread.Sleep(3000);
+                        return;
+                    }
                 }
                 Thread.Sleep(5000);
             }
         }
+
+        // 每分鐘檢查，todolist的時間時出現行事曆
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            foreach (var tdl in toDoList)
+            {
+                // 設定時間的整點，會出現提示
+                if (DateTime.Now.Minute == 0 && tdl.StartTime < DateTime.Now && tdl.EndTime > DateTime.Now)
+                {
+                    string str = string.Format("{0}:00 ~ {1}:00 : {2}", tdl.StartTime.Hour, tdl.EndTime.Hour, tdl.Tip);
+                    notifyIcon.ShowBalloonTip(1000, "Attention!", str, System.Windows.Forms.ToolTipIcon.None);
+                }
+            }
+        }
+      
         public ObservableCollection<PlanVM> GetTodayPlans()
         {
             using (MyDBContext db = new MyDBContext())
@@ -231,7 +254,7 @@ namespace Attention.ViewModel
                             if (index != -1)
                             {
                                 string s = procArr[i].Remove(index);
-                                Procs.Add(procArr[i].ToLower());
+                                Procs.Add(s.ToLower());
                             }
                         }
                     }

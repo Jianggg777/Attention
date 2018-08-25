@@ -19,3 +19,48 @@
 2018-08-24 23:57:33：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
 2018-08-24 23:57:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
 2018-08-24 23:57:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:35：write regedit?
+2018-08-25 16:22:35：  has existed
+2018-08-25 16:22:35：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:36：go SettingWindow.xaml
+2018-08-25 16:22:36：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:36：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:52：write regedit?
+2018-08-25 16:22:52：  has existed
+2018-08-25 16:22:52：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:53：go SettingWindow.xaml
+2018-08-25 16:22:53：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:22:53：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:23:25：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:23:25：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:23:46：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:23:46：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:23:46：UI捕獲未處理異常:找不到檔案 'C:\Users\chi77\source\repos\Attention\Attention\bin\Release\Clipboard.ico'。
+2018-08-25 16:24:43：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:24:43：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:24:43：  error系統找不到指定的檔案。
+2018-08-25 16:53:12：write regedit?
+2018-08-25 16:53:12：  has existed
+2018-08-25 16:53:13：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:53:14：go SettingWindow.xaml
+2018-08-25 16:53:14：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:53:14：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:00：write regedit?
+2018-08-25 16:54:00：  has existed
+2018-08-25 16:54:00：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:01：go SettingWindow.xaml
+2018-08-25 16:54:01：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:01：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:18：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:18：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:37：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:37：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:57：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:57：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:54:57：  error系統找不到指定的檔案。
+2018-08-25 16:55:47：write regedit?
+2018-08-25 16:55:47：  has existed
+2018-08-25 16:55:47：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:55:48：go RunWindow.xaml
+2018-08-25 16:55:48：read db in C:\Users\chi77\source\repos\Attention\Attention\bin\Release\DB.db
+2018-08-25 16:55:48：  error系統找不到指定的檔案。
